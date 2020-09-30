@@ -2,6 +2,11 @@ package Algorithms;
 
 import java.util.Random;
 import java.util.Arrays;
+/*
+* Методы сортировки массивов
+*/
+
+
 
 public class HW_02_01 {
     public static void main(String[] args) {
@@ -106,27 +111,27 @@ public class HW_02_01 {
 
 
         /*
-        * Задание 2.6
-        * На основе массива данных из задания 2.3 реализуйте алгоритм
-        * сортировки методом вставки.
-        * Оцените сортировку с помощью базового класса System.nanoTime().
-        * Сравните с временем выполнения алгоритмов сортировки из прошлых
-        * заданий 2.3, 2.4 и 2.5.
-        */
+         * Задание 2.6
+         * На основе массива данных из задания 2.3 реализуйте алгоритм
+         * сортировки методом вставки.
+         * Оцените сортировку с помощью базового класса System.nanoTime().
+         * Сравните с временем выполнения алгоритмов сортировки из прошлых
+         * заданий 2.3, 2.4 и 2.5.
+         */
         int[] arr400InsertSorting = Arrays.copyOf(arr400, arr400.length);
         long startTimeInsertSorting = System.nanoTime();
         insertSortingAlgorithm(arr400InsertSorting);
         long estimatedTimeInsertSorting = System.nanoTime() - startTimeInsertSorting;
 
 
-
         //Вывод информации о времени и результатах сортировок
 
         System.out.println("\n\nСравнение сортировки массивов");
-        System.out.println("arr400 (не сортирован) = "+ Arrays.toString(arr400));
-        System.out.println("arr400Sort = \t\t\t"+ Arrays.toString(arr400Sort));
-        System.out.println("arr400BubbleSort = \t\t"+ Arrays.toString(arr400BubbleSort));
-        System.out.println("arr400InsertSorting = "+ Arrays.toString(arr400InsertSorting));
+        System.out.println("arr400 (не сортирован) = " + Arrays.toString(arr400));
+        System.out.println("arr400Sort = \t\t\t" + Arrays.toString(arr400Sort));
+        System.out.println("arr400BubbleSort = \t\t" + Arrays.toString(arr400BubbleSort));
+        System.out.println("arr400SelectionMethod = " + Arrays.toString(arr400SelectionMethod));
+        System.out.println("arr400InsertSorting = \t" + Arrays.toString(arr400InsertSorting));
 
 
         System.out.println("\n\nСравнение времени сортировки:");
@@ -134,7 +139,9 @@ public class HW_02_01 {
                 + estimatedTime);
         System.out.println("Время сортировки массива arr400BubbleSort методом bubbleSort() = "
                 + estimatedTimeBubbleSort);
-        System.out.println("Время сортировки массива arr400InsertSorting методом selectionMethod() = "
+        System.out.println("Время сортировки массива arr400SelectionMethod методом selectionMethod() = "
+                + estimatedTimeSelectionMethod);
+        System.out.println("Время сортировки массива arr400InsertSorting методом insertSortingAlgorithm() = "
                 + estimatedTimeInsertSorting);
     }
 
@@ -197,10 +204,19 @@ public class HW_02_01 {
 
     }
 
-    //сортировка методом вставки
+    //сортировка методом вставки - является лучшим алгоритмов сортировки среди простых
 
-    public static void insertSortingAlgorithm(int[] a){
-
+    public static void insertSortingAlgorithm(int[] a) {
+        int in;
+        for (int i = 1; i < a.length; i++) {
+            int buff = a[i];
+            in = i;
+            while (in > 0 && a[in - 1] >= buff) {
+                a[in] = a[in - 1];
+                --in;
+            }
+            a[in] = buff;
+        }
     }
 
 
