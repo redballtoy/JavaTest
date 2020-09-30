@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms_HW_Geekbrains;
 
 import java.util.Random;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 
 
-public class HW_02_01 {
+public class HW_02_01_SortingAlgorithms {
     public static void main(String[] args) {
         int[] mArray;
         int[] mArrayCopy;
