@@ -39,6 +39,8 @@ package Lists;
  * */
 
 
+import Algorithms_HW_Geekbrains.ArObj;
+
 import java.util.ArrayList;
 
 public class ListBaseMethods {
@@ -107,24 +109,3 @@ public class ListBaseMethods {
 }
 
 
-class ArObj {
-    private int x;
-    private int y;
-
-    public ArObj(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void print() {
-        System.out.println("X= " + this.x + "; Y=" + this.y);
-    }
-}
