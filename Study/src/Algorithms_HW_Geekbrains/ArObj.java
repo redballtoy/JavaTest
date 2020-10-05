@@ -21,4 +21,7 @@ public class ArObj {
     public void print() {
         System.out.println("X= " + this.x + "; Y=" + this.y);
     }
+    public String getYX() {
+        return "X= " + this.x + "; Y=" + this.y;
+    }
 }
