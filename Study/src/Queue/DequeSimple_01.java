@@ -35,7 +35,7 @@ package Queue;
 */
 
 
-import Algorithms_HW_Geekbrains.ArObj;
+import aaa_GeekbrainsStudy.Algorithms.ArObj;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

@@ -1,22 +1,17 @@
-package Queue;
+package aaa_GeekbrainsStudy.Algorithms;
 
-import aaa_GeekbrainsStudy.Algorithms.ArObj;
-import aaa_GeekbrainsStudy.Algorithms.QueueInt;
+/*
+* Задание 4.2
+* На основе данных объектного списка из задания 3.4 реализуйте простую очередь и его базовые методы.
+* Реализуйте вспомогательные методы.
+* Оцените время выполнения операций с помощью базового метода System.nanoTime().
+*/
+
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-/*
-* Очередь - это структура данных построенная по принципу FIFO
-* - очередь реализует два интерфейса односторонняя очередь Queue
-* - и двусторонняя очередь Deque (элемент можно добавлять и в начало и в конец)
-* - основные методы аналогичные спискам но имеют немного другую реадизацию:
-*   Функция     Выдает исключение       Возвращает значение
-*   push(e)     add(e)                  offer(e)
-*   pop()       remove()                poll()
-*   peek()      element()               peek() - чтение элемента производится из начала очереди
-*/
-public class QueueSimple_01 {
+public class HW_04_02_SimpleQueueAndBaseMethods {
     public static void main(String[] args) {
         Queue<ArObj> quArrObj = new LinkedList<>();
 
@@ -35,12 +30,17 @@ public class QueueSimple_01 {
 
         //реализация пользовательской очереди
         QueueInt queueInt = new QueueInt(5);
+
+        //Время вставки в очередь:
+        long startTimeInsertSorting = System.nanoTime();
         queueInt.insert(10);
         queueInt.insert(20);
         queueInt.insert(30);
         queueInt.insert(40);
         queueInt.insert(50);
         queueInt.insert(10);
+        long estimatedTimeInsertSorting = System.nanoTime() - startTimeInsertSorting;
+        System.out.println("Время заполнения очереди = " + estimatedTimeInsertSorting);
 
         queueInt.print();
 

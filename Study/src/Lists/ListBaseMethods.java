@@ -39,7 +39,7 @@ package Lists;
  * */
 
 
-import Algorithms_HW_Geekbrains.ArObj;
+import aaa_GeekbrainsStudy.Algorithms.ArObj;
 
 import java.util.ArrayList;
 

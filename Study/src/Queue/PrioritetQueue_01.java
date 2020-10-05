@@ -12,14 +12,7 @@ package Queue;
  */
 
 
-import Algorithms_HW_Geekbrains.ArObj;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.PriorityQueue;
-import java.util.Random;
-
-import Algorithms_HW_Geekbrains.ArObj;
 
 
 public class PrioritetQueue_01 {
