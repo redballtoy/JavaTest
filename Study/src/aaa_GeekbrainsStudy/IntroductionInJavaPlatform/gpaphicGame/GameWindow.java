@@ -3,8 +3,12 @@ package aaa_GeekbrainsStudy.IntroductionInJavaPlatform.gpaphicGame;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 public class GameWindow extends JFrame {
 
@@ -25,6 +29,8 @@ public class GameWindow extends JFrame {
     //скорость капли
     private static float velocityDrop = 200;
 
+    //подсчет отчков
+    private static int score = 0;
 
 
     public static void main(String[] args) throws IOException {
@@ -49,6 +55,37 @@ public class GameWindow extends JFrame {
         GameField gameField = new GameField();
         //присваиваем начальное значение переменной с временем фрейма
         last_frame_time = System.nanoTime();
+        //создаем обработчик нажатия мыши
+        gameField.addMouseListener(new MouseAdapter() {
+            //вызывается при нажатии на мышку
+            @Override
+            public void mousePressed(MouseEvent e) {
+                //получение координаты места где кликнули мышкой
+                int x = e.getX();
+                int y = e.getY();
+
+                //расчет границ капли
+                float borderRightDrop = dropLeft + drop.getWidth(null);
+                float borderBotomDrop = dropTop + drop.getHeight(null);
+
+                //определение попадает клик мышью на каплю или нет
+                boolean isMouseOnDrop = (x >= dropLeft && x <= borderRightDrop)
+                        && (y >= dropTop && y <= borderBotomDrop);
+                if (isMouseOnDrop) {
+                    //если попали то пока за границу экрана
+                    dropTop = -100;
+                    //по горизонтали откинем в случайное место
+                    dropLeft = new Random().nextInt(gameField.getWidth() - drop.getWidth(null));
+                    //увеличим скорость капли
+                    velocityDrop += 20;
+                    //учеличиваем очки
+                    score++;
+                    //выводим очки
+                    gameWindow.setTitle("Score: " + score);
+                }
+
+            }
+        });
         gameWindow.add(gameField);
         //сделать видимым
         gameWindow.setVisible(true);
@@ -72,17 +109,26 @@ public class GameWindow extends JFrame {
 
         //рисование загруженных картинок
         g.drawImage(background, 0, 0, null);
-        //g.drawImage(game_over, 280, 120, null);
+
 
         //анимирование капли
         dropTop = dropTop + velocityDrop * timeDelta;
-        g.drawImage(drop, (int)dropLeft, (int)dropTop, null);
+        //добавление для падения капли по диагонали
+        //dropLeft = dropLeft + velocityDrop * timeDelta;
+        g.drawImage(drop, (int) dropLeft, (int) dropTop, null);
+
+        //при вылете капли за пределы окна выводить game over
+        //получаем высоту окна
+        if (dropTop > gameWindow.getHeight()) {
+            //выводм надпись game over
+            g.drawImage(game_over, 280, 120, null);
+        }
 
 
     }
 
     //создадим панель на которой будем рисовать, панель размещается внутри окна
-    private static class GameField extends JPanel{
+    private static class GameField extends JPanel {
 
         //переопределяем метод с помощью которого будем рисовать
         @Override
