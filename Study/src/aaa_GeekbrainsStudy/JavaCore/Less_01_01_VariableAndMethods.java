@@ -1,14 +1,14 @@
-package aaa_GeekbrainsStudy.JavaCore.lesson_01;
+package aaa_GeekbrainsStudy.JavaCore;
 
 public class Less_01_01_VariableAndMethods {
 
     //2. Создать переменные всех пройденных типов данных и инициализировать их значения.
-    private byte m_byte = 127;
-    private short m_short = 32767;
-    private int m_int = 2000;
-    private long m_long = 200000L;
-    private float m_float = 12.23f;
-    private double m_double = -123.123;
+    private byte m_byte =   Byte.MAX_VALUE;
+    private short m_short = Short.MAX_VALUE;
+    private int m_int = Integer.MAX_VALUE;
+    private long m_long = Long.MAX_VALUE;
+    private float m_float = Float.MAX_VALUE;
+    private double m_double = Double.MAX_VALUE;
     private char m_char = 'a';
     private boolean m_bool = true;
     private String m_str = "string";
