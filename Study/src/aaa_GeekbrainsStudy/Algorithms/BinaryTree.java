@@ -34,9 +34,10 @@ public class BinaryTree {
 
 }
 
+//описание данных которые будут храниться в деревьях
 class Person{
     public String name;
-    public int id;
+    public int id;//обязательный атрибут на основе которого будет производиться сортировка (уникальный)
     public int age;
 
     public Person(String name, int id, int age) {
@@ -46,13 +47,41 @@ class Person{
     }
 }
 
+//создание узла в связанном списке
 class Node{
     public Person person;
-    public Node leftChild;
-    public Node rightChild;
+    public Node leftChild;//фактически ребра которые являются ссылками на предыдущий и
+    public Node rightChild;//последующий элемент
 
     public void display(){
         System.out.println("Имя: "+person.name+"\tВозраст: "+person.age);
     }
+
+}
+
+//класс создания дерева
+class Tree{
+    private Node root;//корневой узел, наша точка отчета
+
+    //вставка нового Person
+    public void insert(Person person) {
+
+    }
+
+    public Node find(int key) {
+        Node node = new Node();
+
+        return node;
+    }
+
+    public boolean delete(int id) {//передаем по id потому что id не должен быть повторяющимся
+
+        return true;
+    }
+
+    public void display_Tree(){
+
+    }
+
 
 }

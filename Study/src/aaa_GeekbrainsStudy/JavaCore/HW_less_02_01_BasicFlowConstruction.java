@@ -67,14 +67,16 @@ public class HW_less_02_01_BasicFlowConstruction {
     //Вариант 1:
     static int[] invertArray_v1(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
+
             if (arr[i] == 0) {
                 arr[i] = 1;
             } else {
                 arr[i] = 0;
+
             }
         }
-        return arr;
-    }
+            return arr;
+        }
 
     //Вариант 2:
     static int[] invertArray_v2(int[] arr) {
