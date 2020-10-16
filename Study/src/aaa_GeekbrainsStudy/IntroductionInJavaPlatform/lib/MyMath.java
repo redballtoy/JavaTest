@@ -1,6 +1,6 @@
 package aaa_GeekbrainsStudy.IntroductionInJavaPlatform.lib;
 
-public class Logic {
+public class MyMath {
     public static int minMaxInt(int[]a, String max_min){
         int max = 0;
         int min = 0;
