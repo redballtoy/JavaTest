@@ -4,8 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessTheNumber {
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Ваша задача угадать число");
         int range = 15;
         int guessNumber = new Random().nextInt(range);
