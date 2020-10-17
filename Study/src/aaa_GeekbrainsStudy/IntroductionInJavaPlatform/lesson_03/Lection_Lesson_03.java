@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import static aaa_GeekbrainsStudy.IntroductionInJavaPlatform.lib.MyMath.*;
 
-public class Lesson_03 {
+public class Lection_Lesson_03 {
     public static void main(String[] args) {
         //сринги по значению и адресу
         //любое изменение строки приводит к созданию новой строки
@@ -108,7 +108,7 @@ public class Lesson_03 {
         return result;
     }
 
-    //неихвестное количество будет переквалифицировано на массив
+    //неизвестное количество будет переквалифицировано на массив
     private static int testOverload(int... a) {
         int result = 1;
         StringBuilder stringBuilder = new StringBuilder();
