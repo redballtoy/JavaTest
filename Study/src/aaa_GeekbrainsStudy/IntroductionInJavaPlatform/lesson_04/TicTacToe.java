@@ -20,7 +20,6 @@ public class TicTacToe {
     static final String EMPTY = " ";
 
 
-
     static char[][] gameArea = new char[SIZE][SIZE];
 
     static Scanner scanner = new Scanner(System.in);
@@ -61,23 +60,23 @@ public class TicTacToe {
     private static void printGameAreaHeader() {
         //System.out.println("\n\n");
         System.out.print(HEADER_FIRST_EMPTY + EMPTY);
-        for (int i = 0; i <SIZE ; i++) {
+        for (int i = 0; i < SIZE; i++) {
             printOneNumber(i);
 
         }
 
     }
 
-    static void printOneNumber(int i){
-        System.out.print((i+1)+EMPTY);
+    static void printOneNumber(int i) {
+        System.out.print((i + 1) + EMPTY);
     }
 
     private static void printGameAreaRows() {
         for (int i = 0; i < SIZE; i++) {
             System.out.println();
             printOneNumber(i);
-            for (int j = 0; j <SIZE ; j++) {
-                System.out.print(gameArea[i][j]+EMPTY);
+            for (int j = 0; j < SIZE; j++) {
+                System.out.print(gameArea[i][j] + EMPTY);
             }
         }
     }
@@ -114,7 +113,7 @@ public class TicTacToe {
             rowNumber = scanner.nextInt();
             System.out.print("Введите номер столбца: ");
             colNumber = scanner.nextInt();
-        } while (!isCellValid(rowNumber, colNumber,"human"));
+        } while (!isCellValid(rowNumber, colNumber, "human"));
         gameArea[rowNumber - 1][colNumber - 1] = DOT_HUMAN;
         System.out.println("\nВаш ход!");
     }
@@ -123,8 +122,8 @@ public class TicTacToe {
         int rowNumber;
         int colNumber;
         do {
-            rowNumber = random.nextInt(SIZE)+1;
-            colNumber = random.nextInt(SIZE)+1;
+            rowNumber = random.nextInt(SIZE) + 1;
+            colNumber = random.nextInt(SIZE) + 1;
         } while (!isCellValid(rowNumber, colNumber, "ai"));
 
         gameArea[rowNumber - 1][colNumber - 1] = DOT_AI;
@@ -133,13 +132,13 @@ public class TicTacToe {
 
     private static boolean isCellValid(int rowNumber, int colNumber, String human_ai) {
         if (rowNumber < 1 || rowNumber > SIZE || colNumber < 1 || colNumber > SIZE) {
-            if(human_ai.equals("human")) {
+            if (human_ai.equals("human")) {
                 System.out.println("\nПроверьте правильность ввода");
             }
             return false;
         }
         if (gameArea[rowNumber - 1][colNumber - 1] != DOT_EMPTY) {
-            if(human_ai.equals("human")) {
+            if (human_ai.equals("human")) {
                 System.out.println("\nЯчейка непустая");
             }
             return false;
@@ -152,8 +151,8 @@ public class TicTacToe {
 
         boolean isEnd = false;
 
-       //check Win
-        if(checkWin()){
+        //check Win
+        if (checkWin()) {
             printWhoWin(dot);
             System.exit(5);
 
@@ -173,11 +172,11 @@ public class TicTacToe {
 
     private static void printWhoWin(char dot) {
         //win or draw
-            if (dot == DOT_HUMAN) {
-                System.out.println("\n\nУра! Вы победили!");
-            } else {
-                System.out.println("\n\nПобедил AI!");
-            }
+        if (dot == DOT_HUMAN) {
+            System.out.println("\n\nУра! Вы победили!");
+        } else {
+            System.out.println("\n\nПобедил AI!");
+        }
     }
 
     private static boolean isGameAreaFull() {
@@ -194,28 +193,58 @@ public class TicTacToe {
 
 
     private static boolean checkWin() {
-        int winCheck = 0;
-        char prevois;
-        char current;
+        int winCheckRow = 0;
+        int winCheckCol = 0;
+        int winCheckD1 = 0;
+        int winCheckD2 = 0;
 
         //check to rows
-        for (int i = 0; i <SIZE ; i++) {
-            for (int j = 0; j < SIZE-1; j++) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE - 1; j++) {
 
-                if (gameArea[i][j]!=DOT_EMPTY && gameArea[i][j] == gameArea[i][j + 1]) {
-                    winCheck +=1;
-                    if (winCheck == WIN-1) {
+                if (gameArea[i][j] != DOT_EMPTY && gameArea[i][j] == gameArea[i][j + 1]) {
+                    winCheckRow += 1;
+                    if (winCheckRow == WIN - 1) {
                         return true;
                     }
                 }
 
             }
-            winCheck = 0;
+            winCheckRow = 0;
+        }
+        //check to cols
+        for (int j = 0; j < SIZE; j++) {
+            for (int i = 0; i < SIZE - 1; i++) {
+
+                if (gameArea[i][j] != DOT_EMPTY && gameArea[i][j] == gameArea[i + 1][j]) {
+                    winCheckCol += 1;
+                    if (winCheckCol == WIN - 1) {
+                        return true;
+                    }
+                }
+
+            }
+            winCheckCol = 0;
+        }
+        //check d1
+        for (int i = 0; i < SIZE - 1; i++) {
+            if (gameArea[i][i] != DOT_EMPTY && gameArea[i][i] == gameArea[i + 1][i + 1]) {
+                winCheckD1 += 1;
+                if (winCheckD1 == WIN - 1) {
+                    return true;
+                }
+            }
+        }
+        winCheckD1 = 0;
+        //check d2
+        for (int i = SIZE - 1; i > 0; i--) {
+            if (gameArea[i][i] != DOT_EMPTY && gameArea[i][i] == gameArea[i - 1][i - 1]) {
+                winCheckD2 += 1;
+                if (winCheckD2 == WIN - 1) {
+                    return true;
+                }
+            }
         }
         return false;
-    }
-
-    private static void printWin(char c) {
-        System.out.println("Победил " + c);
     }
 }
