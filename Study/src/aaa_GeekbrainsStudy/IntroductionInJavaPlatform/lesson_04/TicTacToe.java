@@ -9,6 +9,7 @@ public class TicTacToe {
 
     //1. constants initialization
     static final int SIZE = 3;
+    static final int WIN = 3;
 
     //set game's chars
     static final char DOT_EMPTY = '•'; //Alt + Num 7
@@ -35,8 +36,6 @@ public class TicTacToe {
         initGameArea();
         printGameArea();
         playGame();
-
-
 
     }
 
@@ -84,23 +83,27 @@ public class TicTacToe {
     }
 
     private static void playGame() {
-        //human
+        while (true) {
+
+            //human
             //make a move
             humanTurn();
             //print map
             printGameArea();
             //check
-            //checkend();
+            checkEnd(DOT_HUMAN);
 
 
-        //AI
+            //AI
             //make a move
             aiTurn();
             //print map
             printGameArea();
             //check win
-            //checkend();
+            checkEnd(DOT_AI);
+        }
     }
+
 
     private static void humanTurn() {
         int rowNumber;
@@ -113,7 +116,7 @@ public class TicTacToe {
             colNumber = scanner.nextInt();
         } while (!isCellValid(rowNumber, colNumber,"human"));
         gameArea[rowNumber - 1][colNumber - 1] = DOT_HUMAN;
-        System.out.println("\n\n");
+        System.out.println("\nВаш ход!");
     }
 
     private static void aiTurn() {
@@ -122,16 +125,10 @@ public class TicTacToe {
         do {
             rowNumber = random.nextInt(SIZE)+1;
             colNumber = random.nextInt(SIZE)+1;
-            gameArea[rowNumber - 1][colNumber - 1] = DOT_AI;
-            System.out.println("\n\n");
-        } while (isCellValid(rowNumber, colNumber, "ai"));
+        } while (!isCellValid(rowNumber, colNumber, "ai"));
 
-    }
-
-    private static void checkend() {
-        //check win or draw
-
-
+        gameArea[rowNumber - 1][colNumber - 1] = DOT_AI;
+        System.out.println("\n\nХод компьютера!");
     }
 
     private static boolean isCellValid(int rowNumber, int colNumber, String human_ai) {
@@ -150,5 +147,75 @@ public class TicTacToe {
         return true;
     }
 
+    //check win or draw
+    private static void checkEnd(char dot) {
 
+        boolean isEnd = false;
+
+       //check Win
+        if(checkWin()){
+            printWhoWin(dot);
+            System.exit(5);
+
+        }
+
+        //is game area full
+        if (isGameAreaFull()) {
+            System.out.println("\n\nНичья!");
+            isEnd = true;
+        }
+
+        //end
+        if (isEnd) {
+            System.exit(0);
+        }
+    }
+
+    private static void printWhoWin(char dot) {
+        //win or draw
+            if (dot == DOT_HUMAN) {
+                System.out.println("\n\nУра! Вы победили!");
+            } else {
+                System.out.println("\n\nПобедил AI!");
+            }
+    }
+
+    private static boolean isGameAreaFull() {
+        for (char[] chars : gameArea) {
+            for (char aChar : chars) {
+                if (aChar == DOT_EMPTY) {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    }
+
+
+    private static boolean checkWin() {
+        int winCheck = 0;
+        char prevois;
+        char current;
+
+        //check to rows
+        for (int i = 0; i <SIZE ; i++) {
+            for (int j = 0; j < SIZE-1; j++) {
+
+                if (gameArea[i][j]!=DOT_EMPTY && gameArea[i][j] == gameArea[i][j + 1]) {
+                    winCheck +=1;
+                    if (winCheck == WIN-1) {
+                        return true;
+                    }
+                }
+
+            }
+            winCheck = 0;
+        }
+        return false;
+    }
+
+    private static void printWin(char c) {
+        System.out.println("Победил " + c);
+    }
 }
