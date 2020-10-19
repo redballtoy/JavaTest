@@ -16,7 +16,7 @@ package Iterators;
  */
 
 
-import aaa_GeekbrainsStudy.Algorithms.ArObj;
+import Algorithms.ArObj;
 
 import java.util.*;
 

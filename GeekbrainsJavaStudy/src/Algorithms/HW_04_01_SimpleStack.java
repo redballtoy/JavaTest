@@ -1,34 +1,26 @@
-package Stack;
+package Algorithms;
 
 /*
- * Стэк (стопка) - это абстрактный тип данных, который является списком элементов
- * организованных по принципу LIFO
- * - организуется на базе чего то например связанных списков, массивов
- * - стек используется в JVM для помещения в него переменных при вызове функция
- * - является потокобезопасным потому что для каждого потока создается свой стек
- * - программная реализация стека как правило реализуется в виде однонаправленного
- *   списка либо в качестве одномерного массива с упорядочеными адресами
- * - основные методы:
- *   - Push - добавить элемент
- *   - Pop - удалить элемент
- *   - Peek - просмотреть элемент (самый верхний, в середине посмотреть не получится)
+ * Задание 4.1
+ * На основе данных объектного списка из задания 3.4 реализуйте простой стек и его базовые методы.
+ * Оцените время выполнения операций с помощью базового метода System.nanoTime().
  */
-
-import Algorithms.ArObj;
-import Algorithms.StackInt;
 
 import java.util.Random;
 import java.util.Stack;
 
-public class StackSimple_01 {
+public class HW_04_01_SimpleStack {
     public static void main(String[] args) {
         Stack<ArObj> arObjs = new Stack<>();
 
         //заполнение стека
+        long startTimeInsertSorting = System.nanoTime();
         arObjs.push(new ArObj(4, 5));
         arObjs.push(new ArObj(5, 5));
         arObjs.push(new ArObj(1, 8));
         arObjs.push(new ArObj(3, 1));
+        long estimatedTimeInsertSorting = System.nanoTime() - startTimeInsertSorting;
+        System.out.println("Время заполнения стека: " + estimatedTimeInsertSorting);
 
         //вывод верхнего элемента
         arObjs.peek().print();
@@ -53,7 +45,7 @@ public class StackSimple_01 {
         //заполнение стека
         while (!stackInt.isFull()) {
             stackInt.push(random.nextInt(10));
-            System.out.println("Индекс стека: "+stackInt.getTop());
+            System.out.println("Индекс стека: " + stackInt.getTop());
         }
 
         //Стек заполнен
@@ -64,14 +56,14 @@ public class StackSimple_01 {
 
         //Показать верхний элемент
         System.out.println("Показать верхний элемент: ");
-        System.out.println("top: "+stackInt.getTop()
-                        +"\telement: "+stackInt.peek());
+        System.out.println("top: " + stackInt.getTop()
+                + "\telement: " + stackInt.peek());
 
         //вывод элементов стека
         System.out.println("Вывод элементов стека stackInt: ");
         while (!stackInt.isEmpty()) {
-            System.out.println("top: "+stackInt.getTop()+
-                    "\telement: "+stackInt.pop());
+            System.out.println("top: " + stackInt.getTop() +
+                    "\telement: " + stackInt.pop());
         }
 
 

@@ -1,15 +1,15 @@
-package Lists;
+package Algorithms;
 
-/*
- *  - как и односвязанный список двусторонний список допускает только последовательный доступ к элементам
- */
-
-import Algorithms.ArObj;
+    /*
+    * Задание 3.4
+    * На основе списка из задания 3.1 реализуйте простой двусторонний список и его базовые методы.
+    * Реализуйте список заполненный объектами из вашего класса из задания 1.3
+    */
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class LinkedTwoWayLists {
+public class HW_03_04_SimpleTwoWayLinkedList {
     public static void main(String[] args) {
         LinkedList<String> mArray = new LinkedList<>();
 
@@ -75,4 +75,5 @@ public class LinkedTwoWayLists {
             System.out.println("getX = "+n.getX() + " " + "getY = "+n.getY());
         }
     }
+
 }
