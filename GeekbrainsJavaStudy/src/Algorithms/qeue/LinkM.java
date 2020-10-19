@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.qeue;
 
 public class LinkM {
     public String name;

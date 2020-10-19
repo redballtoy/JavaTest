@@ -1,10 +1,12 @@
-package Algorithms;
+package Algorithms.hw_03;
 
     /*
     * Задание 3.4
     * На основе списка из задания 3.1 реализуйте простой двусторонний список и его базовые методы.
     * Реализуйте список заполненный объектами из вашего класса из задания 1.3
     */
+
+import Algorithms.ArObj;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

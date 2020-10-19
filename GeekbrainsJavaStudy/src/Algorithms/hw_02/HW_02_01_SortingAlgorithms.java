@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.hw_02;
 
 import java.util.Random;
 import java.util.Arrays;

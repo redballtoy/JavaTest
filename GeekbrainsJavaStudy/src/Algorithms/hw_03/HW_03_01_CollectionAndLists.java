@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.hw_03;
 
 
 import java.util.*;

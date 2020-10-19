@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.hw_04;
 
 /*
 * Задание 4.4

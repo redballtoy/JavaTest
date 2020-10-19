@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.hw_04;
 
 /*
  * Задание 4.5
@@ -6,6 +6,9 @@ package Algorithms;
  * Оцените время выполнения операций с помощью базового метода System.nanoTime().
  */
 
+
+import Algorithms.qeue.QueueM;
+import Algorithms.trees.StackListM;
 
 public class HW_04_05_StackAndQueueByLinkedList {
     public static void main(String[] args) {

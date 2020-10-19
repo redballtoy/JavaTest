@@ -1,10 +1,13 @@
-package Algorithms;
+package Algorithms.hw_04;
 
 /*
  * Задание 4.1
  * На основе данных объектного списка из задания 3.4 реализуйте простой стек и его базовые методы.
  * Оцените время выполнения операций с помощью базового метода System.nanoTime().
  */
+
+import Algorithms.ArObj;
+import Algorithms.trees.StackInt;
 
 import java.util.Random;
 import java.util.Stack;

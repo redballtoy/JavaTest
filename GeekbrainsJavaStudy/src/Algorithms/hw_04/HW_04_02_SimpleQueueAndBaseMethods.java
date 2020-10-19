@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.hw_04;
 
 /*
 * Задание 4.2
@@ -7,6 +7,9 @@ package Algorithms;
 * Оцените время выполнения операций с помощью базового метода System.nanoTime().
 */
 
+
+import Algorithms.ArObj;
+import Algorithms.qeue.QueueInt;
 
 import java.util.LinkedList;
 import java.util.Queue;

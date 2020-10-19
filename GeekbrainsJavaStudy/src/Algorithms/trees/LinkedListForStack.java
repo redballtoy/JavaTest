@@ -1,4 +1,6 @@
-package Algorithms;
+package Algorithms.trees;
+
+import Algorithms.qeue.LinkM;
 
 public class LinkedListForStack {
     public LinkM first;

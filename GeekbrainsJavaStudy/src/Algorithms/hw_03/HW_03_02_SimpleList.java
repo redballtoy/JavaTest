@@ -1,4 +1,6 @@
-package Algorithms;
+package Algorithms.hw_03;
+
+import Algorithms.ArObj;
 
 import java.util.ArrayList;
 import java.util.List;

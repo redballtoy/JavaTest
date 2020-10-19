@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.qeue;
 
 class LinkedListForQueue {
     public LinkM first;

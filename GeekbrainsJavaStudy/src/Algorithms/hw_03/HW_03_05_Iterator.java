@@ -1,10 +1,12 @@
-package Algorithms;
+package Algorithms.hw_03;
 
 /*
  * Задание 3.5
  * Реализуйте итератор на основе связанных списков из задания 3.4 и выполните базовые операции итератора.
  * Оцените время выполнения операций с помощью базового метода System.nanoTime()
  */
+
+import Algorithms.ArObj;
 
 import java.util.*;
 
