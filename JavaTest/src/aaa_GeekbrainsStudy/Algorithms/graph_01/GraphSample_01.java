@@ -13,9 +13,6 @@ package aaa_GeekbrainsStudy.Algorithms.graph_01;
  *  - метод обхода в ширину
  */
 
-import aaa_GeekbrainsStudy.Algorithms.graph_01.Vertex;
-import aaa_GeekbrainsStudy.Algorithms.graph_01.Graph;
-
 
 public class GraphSample_01 {
 
