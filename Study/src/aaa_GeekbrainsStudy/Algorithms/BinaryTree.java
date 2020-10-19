@@ -47,7 +47,7 @@ class Person{
     }
 }
 
-//создание узла в связанном списке
+//это сам узел в связанном списке
 class Node{
     public Person person;
     public Node leftChild;//фактически ребра которые являются ссылками на предыдущий и
@@ -68,17 +68,20 @@ class Tree{
 
     }
 
+    //поиск узла по ключу
     public Node find(int key) {
         Node node = new Node();
 
         return node;
     }
 
+    //удаление узла по id
     public boolean delete(int id) {//передаем по id потому что id не должен быть повторяющимся
 
         return true;
     }
 
+    //вывод содержимого всего дерева
     public void display_Tree(){
 
     }
