@@ -29,14 +29,7 @@ public class GraphSample_01 {
         graph.addEdges(0, 3);
         graph.addEdges(3, 4);
 
-        graph.displayVertex(4);
+        graph.bfsRecursive(0);
 
     }
-
-
-
-
-
-    
-
 }
