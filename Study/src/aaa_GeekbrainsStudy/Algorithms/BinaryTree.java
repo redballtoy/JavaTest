@@ -30,6 +30,28 @@ public class BinaryTree {
     public static void main(String[] args) {
         //создание бинарного дерева через списки
 
+        Tree tree = new Tree();
+
+        tree.insert(new Person("Ivan4", 4, 35));
+        tree.insert(new Person("Ivan1", 1, 76));
+        tree.insert(new Person("Ivan2", 2, 41));
+        tree.insert(new Person("Ivan3", 3, 24));
+
+        System.out.print("Max: ");
+        tree.max().display();
+        System.out.print("Min: ");
+        tree.min().display();
+
+        int findId = 3;
+        System.out.print("Find id: " + findId + " ");
+        tree.find(findId).display();
+
+        int delId = 2;
+        System.out.print("Delete id: " + delId + " ");
+        tree.delete(delId);
+        tree.display_Tree();
+
+
     }
 
 }
@@ -109,15 +131,27 @@ class Tree {
         return current;
     }
 
-    //удаление узла по id
-    public boolean delete(int id) {//передаем по id потому что id не должен быть повторяющимся
-
-        return true;
-    }
-
     //вывод содержимого всего дерева
     public void display_Tree() {
 
+    }
+
+    //реализация прямого обхода
+    private void preOrder(Node rootNode) {
+        if (rootNode != null) {
+            rootNode.display();
+            preOrder(rootNode.leftChild);
+            preOrder(rootNode.rightChild);
+        }
+    }
+
+    //реализация обратного обхода
+    private void postOrder(Node rootNode) {
+        if (rootNode != null) {
+            postOrder(rootNode.leftChild);
+            postOrder(rootNode.rightChild);
+            rootNode.display();
+        }
     }
 
     //реализация симметричного обхода
@@ -151,5 +185,82 @@ class Tree {
         return last;
     }
 
+    //удаление узла по id
+    public boolean delete(int id) {//передаем по id потому что id не должен быть повторяющимся
+        Node current = root;
+        Node parent = root;
+
+        boolean isLeftChild = true;
+
+        while (current.person.id != id) {
+            parent = current;
+            if (id < current.person.id) {
+                isLeftChild = true;
+                current = current.leftChild;
+            } else {
+                isLeftChild = false;
+                current = current.rightChild;
+            }
+            if (current == null) {
+                return false;
+            }
+        }
+
+
+        if (current.leftChild == null && current.rightChild == null) {
+            if (current == root) {
+                root = null;
+            } else if (isLeftChild) {
+                parent.leftChild = null;
+            } else {
+                parent.rightChild = null;
+            }
+        } else if (current.rightChild == null) {
+            if (current == null) {
+                root = current.leftChild;
+            } else if (isLeftChild) {
+                parent.leftChild = current.leftChild;
+            } else {
+                parent.rightChild = current.leftChild;
+            }
+        } else if (current.leftChild == null) {
+            if (current == null) {
+                root = current.rightChild;
+            } else if (isLeftChild) {
+                parent.leftChild = current.rightChild;
+            } else {
+                parent.rightChild = current.rightChild;
+            }
+        } else {
+            Node succesor = getSuccesor(current);
+            if (current == root) {
+                root = succesor;
+            } else if (isLeftChild) {
+                parent.leftChild = succesor;
+            } else {
+                parent.rightChild = succesor;
+            }
+            succesor.leftChild = current.leftChild;
+        }
+        return true;
+    }
+
+    //метод возвращающий узел являющийся преемником
+    private Node getSuccesor(Node node) {
+        Node succesorParent = node;
+        Node succesor = node;
+        Node current = node.rightChild;
+
+        while (current != null) {
+            succesorParent = succesor;
+            succesor = current;
+            current = current.leftChild;
+        }
+        if (succesor != node.rightChild) {
+            succesorParent.leftChild = succesor.rightChild;
+            succesor.rightChild = node.rightChild;
+        }
+        return succesor;
+    }
 
 }
