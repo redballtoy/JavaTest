@@ -149,26 +149,22 @@ public class TicTacToe {
     //check win or draw
     private static void checkEnd(char dot) {
 
-        boolean isEnd = false;
 
         //check Win
         if (checkWin()) {
             printWhoWin(dot);
-            System.exit(5);
+            wantToContinue();
 
         }
 
         //is game area full
         if (isGameAreaFull()) {
             System.out.println("\n\nНичья!");
-            isEnd = true;
+            wantToContinue();
         }
 
-        //end
-        if (isEnd) {
-            System.exit(0);
-        }
     }
+
 
     private static void printWhoWin(char dot) {
         //win or draw
@@ -246,5 +242,22 @@ public class TicTacToe {
             }
         }
         return false;
+    }
+
+    private static void wantToContinue() {
+        System.out.println("Хотите продолжить игру? y/n");
+        switch (scanner.next()) {
+            case "y":
+            case "yes":
+            case "да":
+                startGame();
+                break;
+            case "n":
+            case "no":
+            case "нет":
+                System.exit(0);
+            default:
+                System.out.println("Повторите ввод");
+        }
     }
 }
