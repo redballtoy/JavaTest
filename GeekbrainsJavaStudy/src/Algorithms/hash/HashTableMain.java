@@ -22,6 +22,12 @@ public class HashTableMain {
 
         hashTable.display();
 
+        hashFunc2(999, 203);
+
+        hashTable.delete(203);
+
+        hashTable.display();
+
     }
 
     public static void hashFunc2(int k, int size) {

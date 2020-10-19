@@ -1,6 +1,6 @@
 package Algorithms.hash;
 
-public class HashFunction_01 {
+public class HashFunction_01_Main {
     public static void main(String[] args) {
         String hashstr = "Test";
         char hashchar = 't';
