@@ -31,7 +31,7 @@ public class TicTacToe {
 
     }
 
-    private static void startGame() {
+    public static void startGame() {
         initGameArea();
         printGameArea();
         playGame();
