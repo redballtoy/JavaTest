@@ -4,8 +4,8 @@ package Lists;
  *Реализация стека и очереди на базе связанного списка нужна для снятия ограничения размера массива
  */
 
-import Algorithms.QueueM;
-import Algorithms.StackListM;
+import Algorithms.stack.StackListM;
+import Algorithms.qeue.QueueM;
 
 public class StackAndQueueByLinkedList {
     public static void main(String[] args) {

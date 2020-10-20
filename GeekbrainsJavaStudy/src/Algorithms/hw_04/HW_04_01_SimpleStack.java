@@ -7,7 +7,7 @@ package Algorithms.hw_04;
  */
 
 import Algorithms.ArObj;
-import Algorithms.trees.StackInt;
+import Algorithms.stack.StackInt;
 
 import java.util.Random;
 import java.util.Stack;

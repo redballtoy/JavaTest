@@ -8,7 +8,7 @@ package Algorithms.hw_04;
 
 
 import Algorithms.qeue.QueueM;
-import Algorithms.trees.StackListM;
+import Algorithms.stack.StackListM;
 
 public class HW_04_05_StackAndQueueByLinkedList {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
 package Queue;
 
 import Algorithms.ArObj;
-import Algorithms.QueueInt;
+import Algorithms.qeue.QueueInt;
 
 import java.util.LinkedList;
 import java.util.Queue;

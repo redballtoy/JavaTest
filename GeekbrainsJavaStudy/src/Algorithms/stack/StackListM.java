@@ -1,5 +1,7 @@
-package Algorithms.trees;
+package Algorithms.stack;
 
+
+import Algorithms.trees.LinkedListForStack;
 
 public class StackListM {
 

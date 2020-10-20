@@ -15,7 +15,7 @@ package Stack;
  */
 
 import Algorithms.ArObj;
-import Algorithms.StackInt;
+import Algorithms.stack.StackInt;
 
 import java.util.Random;
 import java.util.Stack;

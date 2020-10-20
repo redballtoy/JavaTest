@@ -1,4 +1,4 @@
-package Algorithms.trees;
+package Algorithms.stack;
 
 
 //пример пользовательского класса стека
