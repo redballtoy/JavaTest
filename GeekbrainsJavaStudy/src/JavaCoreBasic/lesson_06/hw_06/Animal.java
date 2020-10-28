@@ -1,10 +1,10 @@
 package JavaCoreBasic.lesson_06.hw_06;
 
 public class Animal {
-    private String name;
-    private int maxRunLenght;
-    private float maxJumpLenght;
-    private int maxSwimLenght;
+    protected String name;
+    protected int maxRunLenght;
+    protected float maxJumpLenght;
+    protected int maxSwimLenght;
 
 
     Animal(String name,int maxRunLenght, float maxJumpLenght, int maxSwimLenght) {
@@ -21,6 +21,10 @@ public class Animal {
         this.name = name;
     }
 
+    Animal() {
+
+    }
+
 
     public boolean run(int lenght){
         return hasDo(lenght,maxRunLenght);
@@ -33,8 +37,7 @@ public class Animal {
     };
 
     private boolean hasDo(int lenght,float maxJumpLenght) {
-        if((float)lenght>maxJumpLenght) return false;
-        return true;
+        return ((float)lenght<maxJumpLenght);
     }
 
     public String getName() {
@@ -52,4 +55,5 @@ public class Animal {
     public int getMaxSwimLenght() {
         return maxSwimLenght;
     }
+
 }

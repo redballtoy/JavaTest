@@ -29,7 +29,7 @@ public class Cat {
 
     @Override
     public String toString() {
-        return "Cat{" +
+        return "SmallCat{" +
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", age=" + age +
@@ -50,7 +50,7 @@ public class Cat {
     }
 
     public static void  printCatsCount() {
-        System.out.println("Cat.countCats = "+Cat.countCats);
+        System.out.println("SmallCat.countCats = "+Cat.countCats);
     }
 
     @Override
