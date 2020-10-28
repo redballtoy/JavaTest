@@ -1,8 +1,6 @@
 package StreamAPI.legasy;
 
 
-import sun.plugin2.message.Message;
-
 import java.time.LocalDate;
 import java.util.*;
 
@@ -58,10 +56,10 @@ public class AccountRequestProcessorServiceToImpl implements AccountRequestProce
         }
 
         //создаем сообщения
-        List<Message> messageList = new ArrayList<Message>();
+       // List<Message> messageList = new ArrayList<Message>();
 
         //отправляем сообщения
-        sendRequestListService.sendAll(messageList);
+        //sendRequestListService.sendAll(messageList);
 
     }
 
