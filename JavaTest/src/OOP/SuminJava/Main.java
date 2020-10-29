@@ -3,22 +3,16 @@ package OOP.SuminJava;
 public class Main {
     public static void main(String[] args) {
         Box myBox = new Box();
-        myBox.height = 10.2;
-        myBox.lenght = 15;
-        myBox.width = 11.3;
-
+        myBox.setDimens(11.3, 10.2, 15);
         Box myBox2 = new Box();
-        myBox2.height = 5;
-        myBox2.lenght = 5;
-        myBox2.width = 5;
-
+        myBox2.setDimens(5, 5, 5);
         Box myBox3 = new Box();
-        myBox3.height = 10;
-        myBox3.lenght = 10;
-        myBox3.width = 10;
+        myBox3.setDimens(10, 10, 10);
 
-        Box myBox4 = myBox3;
-        myBox4.width = 100;
+        Box box4 = new Box();
+        box4.printVolume();
+
+
 
 
 
@@ -28,7 +22,8 @@ public class Main {
 
         //------------Test
         Test test = new Test();
-        System.out.println(test.square(11));
+        test.setDimens(15,15,15);
+        test.printVolume();
 
     }
 

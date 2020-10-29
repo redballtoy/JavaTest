@@ -5,6 +5,12 @@ public class Box {
     double height;
     double lenght;
 
+    public Box() {
+        width = 10;
+        lenght = 10;
+        height = 10;
+    }
+
     void setDimens(double width, double height, double lenght) {
         this.width = width;
         this.height = height;
@@ -18,6 +24,7 @@ public class Box {
     public void printVolume() {
         System.out.println("volume: " + getVolume());
     }
+
 
 
 }
