@@ -1,4 +1,4 @@
-package OOP.SuminJava;
+package AccessModifiers.Sumin.box;
 
 public class Box {
     double width;
@@ -11,14 +11,14 @@ public class Box {
         this.lenght = lenght;
     }
 
-    public Box(double size) {
+     public Box(double size) {
         width = size;
         lenght = size;
         height = size;
 
     }
 
-    public Box() {
+     public Box() {
         width = 0;
         lenght = 0;
         height = 0;
@@ -49,7 +49,7 @@ public class Box {
         System.out.println("volume: \t\t\t" + getVolume());
     }
 
-    void compareTo(Box box) {
+    public void compareTo(Box box) {
         System.out.println("\nСравненение объемов коробок:");
         double thisVolume = getVolume();
         double boxVolume = box.getVolume();

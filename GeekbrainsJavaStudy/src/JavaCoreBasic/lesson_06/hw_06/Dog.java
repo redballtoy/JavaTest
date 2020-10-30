@@ -13,4 +13,7 @@ public class Dog extends Animal {
         this.maxRunLenght = 600;
         this.maxSwimLenght = 10;
     }
+    public  void thisIsOnlyMyMethod() {
+        System.out.println("Im DOG!");
+    }
 }

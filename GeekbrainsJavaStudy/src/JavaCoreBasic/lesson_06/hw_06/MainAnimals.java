@@ -12,6 +12,9 @@ public class MainAnimals {
         Animal dog_01 = new Dog();
         Animal dog_02 = new Dog();
 
+        Dog dog3 = new Dog();
+        dog3.thisIsOnlyMyMethod();
+
 
 
         System.out.println(smallCat_01.getName()+" run(250)= "+smallCat_01.run(250));

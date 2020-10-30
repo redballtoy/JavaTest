@@ -36,6 +36,12 @@ public class Main {
         Box boxClone = new Box(box2);
         boxClone.compareTo(box2);
 
+        //создание коробки в 2 раза больше переданной
+        box2.showDimension("box2");
+        Box doubleSizeBox = box2.increaseBoxDim(2);
+        doubleSizeBox.showDimension("doubleSizeBox");
+
+
 
 
     }
