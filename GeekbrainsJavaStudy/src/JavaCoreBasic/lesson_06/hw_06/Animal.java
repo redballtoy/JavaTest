@@ -1,6 +1,6 @@
 package JavaCoreBasic.lesson_06.hw_06;
 
-public class Animal {
+public abstract class Animal {
     protected String name;
     protected int maxRunLenght;
     protected float maxJumpLenght;
