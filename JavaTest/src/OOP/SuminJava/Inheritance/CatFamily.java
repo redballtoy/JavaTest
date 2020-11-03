@@ -5,12 +5,6 @@ public class CatFamily {
     protected int legs;
     protected boolean hasBigClaws;
 
-    public CatFamily() {
-        ears=2; //ухов
-        legs=4; //лап
-        hasBigClaws = true;//есть большие когти
-    }
-
     public CatFamily(int ears, int legs, boolean hasBigClaws) {
         this.ears = ears;
         this.legs = legs;
@@ -24,5 +18,8 @@ public class CatFamily {
                 ", legs=" + legs +
                 ", hasBigClaws=" + hasBigClaws +
                 '}';
+    }
+    public String eat() {
+        return "Кушвю еду";
     }
 }
