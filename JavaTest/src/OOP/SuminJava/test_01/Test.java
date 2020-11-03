@@ -1,4 +1,4 @@
-package OOP.SuminJava;
+package OOP.SuminJava.test_01;
 
 public class Test extends Box {
 
