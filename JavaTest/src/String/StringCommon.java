@@ -44,6 +44,9 @@ public class StringCommon {
 
         //substring - позволяет выделить подстроку в строке
         System.out.println(str3.substring(1,4));
+        String s = "Это Игорь и он программист";
+        String name = s.substring(4, 9);
+        System.out.println(name);
 
         //replace - что и на что будем менять
         System.out.println(str3.replace('В','М'));
