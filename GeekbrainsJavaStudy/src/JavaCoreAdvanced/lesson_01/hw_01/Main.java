@@ -22,7 +22,7 @@ public class Main {
         Wall wall = new Wall();
         wall.jump();
 
-        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("\n\n-------------------------------------------------------------------------------");
         System.out.println("И так соревнование по бегу и прыжкам между человеком, роботом и кошкой");
         System.out.println("-------------------------------------------------------------------------------");
         ArrayList<Competitors> competitors = new ArrayList<>();
@@ -42,27 +42,25 @@ public class Main {
 
         //Старт
         for (int i = 0; i < competitors.size(); i++) {
-            System.out.println();
+            System.out.println("\n\nВот он наш спортсмен!");
             competitors.get(i).run();
+            competitors.get(i).jump();
             for (int j = 0; j < threadmills.size(); j++) {
+                System.out.println("\nПолоса препятствий N: " + (j+1));
                 threadmills.get(j).run();
                 if (competitors.get(i).getMaxRunDistance() < threadmills.get(j).getMaxRunDistance()) {
                     System.out.println("Участник под номером " + i + " не смог преодолеть дистанцию");
                     break;
                 } else {
                     System.out.println("Участник под номером " + i + " преодолел дистанцию следующее испытание стена!");
-                    System.out.println();
-                    competitors.get(i).jump();
                     walls.get(j).jump();
                     if (competitors.get(i).getMaxJumpHeight() < walls.get(j).getMaxJumpHeight()) {
                         System.out.println("Участник под номером " + i + " не смог преодолеть стену");
                         break;
                     } else {
                         System.out.println("Участник под номером " + i + " смог преодолеть стену!");
-                        System.out.println("Следующий этап N: " + (i + 1));
                     }
                 }
-                System.out.println();
             }
         }
 
