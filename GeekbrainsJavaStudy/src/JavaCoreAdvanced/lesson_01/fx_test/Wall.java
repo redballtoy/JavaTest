@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_01;
+package JavaCoreAdvanced.lesson_01.fx_test;
 
 public class Wall {
     private String name;
