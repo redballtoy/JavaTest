@@ -14,16 +14,16 @@ public class Cat {
         }
 
         switch (color) {
-            case BLACK -> System.out.println(Color.BLACK.getRussianTranscriptionColor());
-             case WHITE -> System.out.println(Color.WHITE.getRussianTranscriptionColor());
+            case BLACK:
+                System.out.println(Color.BLACK.getRussianTranscriptionColor());
+                break;
+            case WHITE:
+                System.out.println(Color.WHITE.getRussianTranscriptionColor());
+                break;
         }
 
 
-
-
     }
-
-
 
 
 }
