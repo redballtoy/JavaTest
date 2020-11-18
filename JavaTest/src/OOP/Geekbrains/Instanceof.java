@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_01.OOP;
+package OOP.Geekbrains;
 
 public class Instanceof {
     public static void main(String[] args) {

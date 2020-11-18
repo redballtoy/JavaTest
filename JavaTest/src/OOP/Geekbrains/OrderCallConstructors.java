@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_01.OOP;
+package OOP.Geekbrains;
 
 //Порядок вызова конструкторов и блоков инициализации у родителя и потомка
 public class OrderCallConstructors {

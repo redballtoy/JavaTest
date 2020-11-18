@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_01.OOP;
+package OOP.Geekbrains;
 
 import java.util.LinkedList;
 import java.util.List;
