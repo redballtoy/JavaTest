@@ -9,9 +9,11 @@ package Throwable.part_01;
     Структура классов исключений:
 
     Throwable - основной класс выбрасывания исключения
+
         - Error - ошибки JVM которые мы не можем контролировать и соотвественно обрабатывать
                     (StackOverflow, завершение работы JVM)
             - подклассы Error
+
         - Exception - все exceptions кроме RuntimeException и Error требуют обработки
             - IOException
                     - EOFException
@@ -21,6 +23,7 @@ package Throwable.part_01;
             - ClassNotFoundException
             - CloneNotSupportedException
             - другие подклассы Exception
+
             - RuntimeException - возникают в процессе выполнения программы и мы их не обрабатываем
                 - NullPointerException
                 - IndexOutOfBoundsException
@@ -35,6 +38,24 @@ package Throwable.part_01;
     - всегда надо стараться указывать наиболее возможную ошибку потому что
         каждый тип ошибки должен обрабатываться по разному, т.е. если возможно
         NullPointerException не надо писать Exception
+
+    - throws - вписывается в сигнатуру метода и информирует что при выполненнии метода может
+                появиться исключение
+
+    - throw - вызвать ошибку в данном месте
+
+    - finally - блока finally может не быть
+                - в блок finally return не ставить потому что при нормальной работе
+                    блок finally всегда будет выполняться
+
+
+    - catch - блок в который переходит программа при обработке исключения
+            - блока catch может не быть но тогда конструкция должна быть такого типа:
+                    -  try{} finally{}
+            - может быть несколько catch
+            - catch может обработась сразу два исключения если написать
+                    сatch (NullPointerException | ArithmeticException e)
+
 */
 
 
@@ -54,7 +75,7 @@ public class MainThrowable {
         //в данном случае public class ArithmeticException extends RuntimeException {
         try {
             System.out.println(12 / 0);
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             e.printStackTrace();
         }
 
