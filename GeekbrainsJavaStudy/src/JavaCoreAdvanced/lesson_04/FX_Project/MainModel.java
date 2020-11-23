@@ -27,6 +27,7 @@ public class MainModel extends Application {
     public void start(Stage primaryStage) {
         Parent root=null;
         try {
+
             root = FXMLLoader.load(getClass().getResource(PATH_TO_XML_LAYOUT));
         } catch (IOException e) {
             e.printStackTrace();
