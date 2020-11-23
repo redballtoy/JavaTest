@@ -72,7 +72,7 @@ public class Controller {
     public void addWordToList(String word) {
         //Вадидация что в осно ввода не пустое
         if (word.isEmpty()) {
-            System.out.println("Вы ничего не ввели!");
+            alertGo();
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
             lv_output_word.getItems().add(word);
@@ -88,7 +88,7 @@ public class Controller {
         String word = et_edit_text.getText().toString();
         //Вадидация что в осно ввода не пустое
         if (word.isEmpty()) {
-            System.out.println("Вы ничего не ввели!");
+            alertGo();
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
             addWordToList(word);
@@ -109,7 +109,7 @@ public class Controller {
             }
         }
         //добавить новую строку в массив
-        if(!hasWord) {
+        if (!hasWord) {
             frequencyByWord.add(new RowWords(word, 1));
         }
     }
@@ -118,6 +118,22 @@ public class Controller {
     @FXML
     public void exit() {
         System.exit(1);
+    }
+    private void alertGo() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Input Error!");
+        alert.setHeaderText("Ошибка ввода сообщения");
+        alert.setContentText("Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
+        alert.showAndWait();//отображает окно и не дает с него переключаться в отличие от простого show
+    }
+
+    @FXML //если есть связь с шаблоном обязательно указывать
+    private void showAbout() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("About");
+        alert.setHeaderText("HW for Lesson 4");
+        alert.setContentText("FX приложение созданное в рамках 4 урока!");
+        alert.showAndWait();//отображает окно и не дает с него переключаться в отличие от простого show
     }
 
 }
