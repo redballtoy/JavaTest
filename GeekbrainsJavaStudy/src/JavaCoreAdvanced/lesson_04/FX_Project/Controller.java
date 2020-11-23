@@ -43,10 +43,10 @@ public class Controller {
     //Для хранениея данных в таблице - одна строка неопределенное колиство значений (для этого нужен объект)
     //коллекция будет иметь тип объекта совпадающий с типом объекта в таблице
     private final ObservableList<RowWords> frequencyByWord = FXCollections.observableArrayList(
-            new RowWords("a", 1),
-            new RowWords("b", 2),
-            new RowWords("c", 3),
-            new RowWords("d", 4)
+            new RowWords("a", 0),
+            new RowWords("b", 0),
+            new RowWords("c", 0),
+            new RowWords("d", 0)
     );
 
 
@@ -98,7 +98,20 @@ public class Controller {
         et_edit_text.clear();
     }
 
+    //Добввление данных в таблицу
     private void addWordToTable(String word) {
+        boolean hasWord = false;
+        //если добавляемое слово уже есть увеличить счетчик
+        for (RowWords rowWords : frequencyByWord) {
+            if (rowWords.getWord().equals(word)) {
+                rowWords.setCount(rowWords.getCount() + 1);
+                hasWord = true;
+            }
+        }
+        //добавить новую строку в массив
+        if(!hasWord) {
+            frequencyByWord.add(new RowWords(word, 1));
+        }
     }
 
     //Выход в меню
