@@ -44,9 +44,7 @@ public class Controller {
 
     @FXML
     //Добавление слова в список
-    public void addWordToList() {
-        //Получем слово введенное в input поле
-        String word = et_edit_text.getText().toString();
+    public void addWordToList(String word) {
         //Вадидация что в осно ввода не пустое
         if (word.isEmpty()) {
             System.out.println("Вы ничего не ввели!");
@@ -56,6 +54,31 @@ public class Controller {
         }
         //Очищаем поле et_edit_text
         et_edit_text.clear();
+    }
+    @FXML
+    //Добавление слова в список
+    public void addWord() {
+        //Получем слово введенное в input поле
+        String word = et_edit_text.getText().toString();
+        //Вадидация что в осно ввода не пустое
+        if (word.isEmpty()) {
+            System.out.println("Вы ничего не ввели!");
+        } else {
+            //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
+           addWordToList(word);
+           addWordToTable(word);
+        }
+        //Очищаем поле et_edit_text
+        et_edit_text.clear();
+    }
+
+    private void addWordToTable(String word) {
+    }
+
+    //Выход в меню
+    @FXML
+    public void exit() {
+        System.exit(1);
     }
 
 }

@@ -46,7 +46,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="457.0">
                            <children>
-                              <TextField fx:id="et_edit_text" alignment="TOP_LEFT" layoutX="151.0" layoutY="13.0" onAction="#addWordToList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TextField fx:id="et_edit_text" alignment="TOP_LEFT" layoutX="151.0" layoutY="13.0" onAction="#addWord" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font></TextField>
@@ -54,7 +54,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="bt_send_text" layoutX="54.0" layoutY="13.0" mnemonicParsing="false" onAction="#addWordToList" text="Send" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+                              <Button fx:id="bt_send_text" layoutX="54.0" layoutY="13.0" mnemonicParsing="false" onAction="#addWord" text="Send" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font></Button>
@@ -72,7 +72,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
