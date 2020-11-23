@@ -25,7 +25,7 @@ public class MainModel extends Application {
     @Override
     //Stage - это сцена, фактически это окно JavaFX
     public void start(Stage primaryStage) {
-        FXMLLoader fXMLLoader;
+        Parent root=null;
         try {
             root = FXMLLoader.load(getClass().getResource(PATH_TO_XML_LAYOUT));
         } catch (IOException e) {

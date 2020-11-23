@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 
 //перехватывает действия и реагирует на них
@@ -16,11 +17,14 @@ public class Controller {
     private TextField et_edit_text;
 
     @FXML
-    private Button bt_send_text = new Button();
+    private Button bt_send_text;
+
+    @FXML
+    private MenuBar m_top_menu;
 
 
     @FXML
-    private ListView<String> listView;
+    private ListView<String> lv_output_word;
 
     @FXML
     //Для хранения textView нужна коллекция приспособленная дла fx
@@ -34,7 +38,7 @@ public class Controller {
     public void initialize() {
         
         //вносим данные коллекции в ListView
-        bt_send_text.setText("ChangeText");
+        bt_send_text.setText("SetMessages");
         et_edit_text.setText("Привет!");
 
     }
