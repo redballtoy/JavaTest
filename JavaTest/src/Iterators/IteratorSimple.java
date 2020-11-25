@@ -15,7 +15,6 @@ package Iterators;
  *   может быть вызван только после методов next() или previous()
  */
 
-
 import Algorithms.ArObj;
 
 import java.util.*;
