@@ -1,15 +1,17 @@
 package JavaCoreAdvanced.FXmessenger.controller;
 
+import JavaCoreAdvanced.FXmessenger.net.Network;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 //перехватывает действия и реагирует на них
-public class Controller {
+public class ViewController {
 
 
     //связывание контроллера с элементами вьюхи
@@ -42,9 +44,15 @@ public class Controller {
             "Строка статуса...","Строка статуса...","Строка статуса...","Строка статуса...");
 
 
-
     //При первом открытии окна будет метод инициализации
     @FXML
+
+    //для взаимодействия с классом Network его необходимо получить
+    private Network network;
+
+    public void setNetwork(Network network) {
+        this.network = network;
+    }
 
     public void initialize() {
         //вносим данные коллекции в ListView
@@ -65,6 +73,7 @@ public class Controller {
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
             lv_output_word.getItems().add(word);
+
         }
         //Очищаем поле et_edit_text
         et_edit_text.clear();
@@ -88,6 +97,7 @@ public class Controller {
 
             String str = getCurrentTime() +  " Вы: -> " + getCurrentUser() + " : " + word;
             addWordToList(str);
+            sendMessage(word);
         }
         //Очищаем поле et_edit_text
         et_edit_text.clear();
@@ -131,6 +141,17 @@ public class Controller {
         String formatTime = "hh:mm:ss";
         SimpleDateFormat sf = new SimpleDateFormat(formatTime);
         return sf.format(new Date());
+    }
+
+    private void sendMessage(String msg){
+        try {
+            network.getOut().writeUTF(msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Ошибка при отправке сообщения");
+        }
+
+
     }
 
 }
