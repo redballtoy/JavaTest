@@ -5,6 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 //перехватывает действия и реагирует на них
 public class Controller {
 
@@ -24,8 +27,7 @@ public class Controller {
     private ListView<String> lv_output_word;
 
     //Для хранения textView нужна коллекция приспособленная дла fx
-    private final ObservableList<String> wordList = FXCollections.observableArrayList(
-            "Привет", "Часы", "Новый Год!");
+    private final ObservableList<String> wordList = FXCollections.observableArrayList();
 
     @FXML
     private ListView<String> lv_users_list;
@@ -34,11 +36,10 @@ public class Controller {
             "Андрей", "Сергей", "Василий");
 
 
-
     //При первом открытии окна будет метод инициализации
     @FXML
 
-   public void initialize(){
+    public void initialize() {
         //вносим данные коллекции в ListView
         //bt_send_text.setText("SetMessages");
         et_edit_text.setText("Привет!");
@@ -51,7 +52,8 @@ public class Controller {
     public void addWordToList(String word) {
         //Валидация что в окно ввода не пустое
         if (word.isEmpty()) {
-            alertGo();
+            alertGo("Input Error!", "Ошибка ввода сообщения"
+                    , "Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
             lv_output_word.getItems().add(word);
@@ -67,10 +69,16 @@ public class Controller {
         String word = et_edit_text.getText().toString();
         //Вадидация что в осно ввода не пустое
         if (word.isEmpty()) {
-            alertGo();
+            alertGo("Input Error!", "Ошибка ввода сообщения"
+                    , "Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
-            String str = "Вы: -> "+getCurrentUser() +" : " + word;
+            if (getCurrentUser() == null) {
+                alertGo("Select Error","Ошибка выбора пользователя","Ваберите кому хотите написать");
+                return;
+            }
+
+            String str = getCurrentTime() +  " Вы: -> " + getCurrentUser() + " : " + word;
             addWordToList(str);
         }
         //Очищаем поле et_edit_text
@@ -89,11 +97,15 @@ public class Controller {
     public void exit() {
         System.exit(1);
     }
-    private void alertGo() {
+
+    private void alertGo(String title, String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Input Error!");
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        /*alert.setTitle("Input Error!");
         alert.setHeaderText("Ошибка ввода сообщения");
-        alert.setContentText("Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
+        alert.setContentText("Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");*/
         alert.showAndWait();//отображает окно и не дает с него переключаться в отличие от простого show
     }
 
@@ -104,6 +116,13 @@ public class Controller {
         alert.setHeaderText("HW for Lesson 6");
         alert.setContentText("FX приложение созданное в рамках 6 урока!");
         alert.showAndWait();//отображает окно и не дает с него переключаться в отличие от простого show
+    }
+
+    private String getCurrentTime() {
+        String formatDateTime = "dd.mm.yy hh:mm:ss";
+        String formatTime = "hh:mm:ss";
+        SimpleDateFormat sf = new SimpleDateFormat(formatTime);
+        return sf.format(new Date());
     }
 
 }
