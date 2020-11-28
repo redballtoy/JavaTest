@@ -44,7 +44,6 @@ public class Controller {
         et_edit_text.setText("Привет!");
         lv_output_word.setItems(wordList);
         lv_users_list.setItems(usersList);
-
     }
 
     @FXML
@@ -71,11 +70,19 @@ public class Controller {
             alertGo();
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
-            addWordToList(word);
+            String str = "Вы: -> "+getCurrentUser() +" : " + word;
+            addWordToList(str);
         }
         //Очищаем поле et_edit_text
         et_edit_text.clear();
     }
+
+    //Получение выделенного пользователя
+    @FXML
+    public String getCurrentUser() {
+        return lv_users_list.getSelectionModel().getSelectedItem();
+    }
+
 
     //Выход в меню
     @FXML
