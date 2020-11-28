@@ -1,6 +1,7 @@
 package JavaCoreAdvanced.FXmessenger.controller;
 
 import JavaCoreAdvanced.FXmessenger.net.Network;
+import JavaCoreAdvanced.FXmessenger.util.AlertError;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -41,7 +42,7 @@ public class ViewController {
     @FXML
     private ListView<String> lv_status_line;
     private final ObservableList<String> statusLine = FXCollections.observableArrayList(
-            "Строка статуса...","Строка статуса...","Строка статуса...","Строка статуса...");
+            "Строка статуса...");
 
 
     //При первом открытии окна будет метод инициализации
@@ -68,7 +69,7 @@ public class ViewController {
     public void addWordToList(String word) {
         //Валидация что в окно ввода не пустое
         if (word.isEmpty()) {
-            alertGo("Input Error!", "Ошибка ввода сообщения"
+            new AlertError().alertGo("Input Error!", "Ошибка ввода сообщения"
                     , "Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
@@ -86,12 +87,13 @@ public class ViewController {
         String word = et_edit_text.getText().toString();
         //Вадидация что в осно ввода не пустое
         if (word.isEmpty()) {
-            alertGo("Input Error!", "Ошибка ввода сообщения"
+            new AlertError().alertGo("Input Error!", "Ошибка ввода сообщения"
                     , "Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");
         } else {
             //Получаем коллекцию элементов из ListView и добавляем в нее то что вводим внизу
             if (getCurrentUser() == null) {
-                alertGo("Select Error","Ошибка выбора пользователя","Ваберите кому хотите написать");
+                new AlertError().alertGo("Select Error","Ошибка выбора пользователя"
+                        ,"Ваберите кому хотите написать");
                 return;
             }
 
@@ -116,16 +118,7 @@ public class ViewController {
         System.exit(1);
     }
 
-    private void alertGo(String title, String header, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        /*alert.setTitle("Input Error!");
-        alert.setHeaderText("Ошибка ввода сообщения");
-        alert.setContentText("Вы не ввели сообщение!\nНельзя вводить пустое сообщение!");*/
-        alert.showAndWait();//отображает окно и не дает с него переключаться в отличие от простого show
-    }
+
 
     @FXML //если есть связь с шаблоном обязательно указывать
     private void showAbout() {
@@ -148,7 +141,7 @@ public class ViewController {
             network.getOut().writeUTF(msg);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Ошибка при отправке сообщения");
+            System.out.println("Ошибка при отправке сообщения " + msg);
         }
 
 

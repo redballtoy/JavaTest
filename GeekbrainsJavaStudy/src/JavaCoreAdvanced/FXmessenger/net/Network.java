@@ -1,5 +1,8 @@
 package JavaCoreAdvanced.FXmessenger.net;
 
+import JavaCoreAdvanced.FXmessenger.controller.ViewController;
+import JavaCoreAdvanced.FXmessenger.util.AlertError;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,6 +18,8 @@ public class Network {
     private DataInputStream in;
     private DataOutputStream out;
     private Socket socket;
+
+    final AlertError alertError = new AlertError();
 
     //будет обращаться к конструктору с дефолтными параметрами
     public Network() {
@@ -39,7 +44,8 @@ public class Network {
             return true;
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Соединение не было установлено");
+            alertError.alertGo("IOException","Connection Error"
+                    , "Соединение не было установлено");
             return false;
         }
     }
@@ -60,5 +66,31 @@ public class Network {
 
     public DataOutputStream getOut() {
         return out;
+    }
+
+    public void waitMessage(ViewController viewController) {
+        //ожидание ответв от сервера делаем в новом потоке
+        Thread thread= new Thread(()->{
+            try {
+                while (true) {
+                    String msg = in.readUTF();
+                    //сообщение необходимо отправить в контроллер что бы отобразить его
+                    //для этого надо получить элемент контроллера
+                    viewController.addWordToList(msg);
+                    System.out.println("Log:" + msg);
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                alertError.alertGo("IOException","Connection Error"
+                        , "Соединение потеряно");
+            }
+
+        });
+        //демоны выполняются в фоне и имеют небольшой приоритет, мало потребляют ресурсов и закрываются при
+        //закрытии приложения
+        thread.setDaemon(true);
+        thread.start();
+
     }
 }

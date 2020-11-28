@@ -2,6 +2,7 @@ package JavaCoreAdvanced.FXmessenger.view;
 
 import JavaCoreAdvanced.FXmessenger.controller.ViewController;
 import JavaCoreAdvanced.FXmessenger.net.Network;
+import JavaCoreAdvanced.FXmessenger.util.AlertError;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ public class Client extends Application {
     final int width = 1000;
     final int height = 600;
     final int VERSION_APP = 6;
+    final AlertError alertError = new AlertError();
 
 
     //Единственная цель этого метода запуск приложения
@@ -43,7 +45,8 @@ public class Client extends Application {
         Network network = new Network();
         //если соединение не произошло вывести сообщение
         if (!network.connect()) {
-            System.out.println("Ошибка подключения к серверу");
+            alertError.alertGo("Connect Input Error","Ошибка подключения к серверу",
+                    "Ошибка подключения к серверу");
         }
 
         //Получение контроллера для вьюхи
@@ -51,6 +54,8 @@ public class Client extends Application {
         //в контроллер передаем объект нашего network
         viewController.setNetwork(network);
 
+        //Чтение сообщения с сервера
+        network.waitMessage(viewController);
 
         //В случае закрытия нашего окна закрываем сокет
         //используем лямбду для реализации функционального интерфейса

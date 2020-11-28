@@ -48,7 +48,7 @@ public class Server {
             DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
 
             //будем ждать сокета от клиентов (необходимо будет вынести )
-            new Thread(()->{
+            Thread thread = new Thread(()->{
                 while (true) {
                     String msg="";
                     try {
@@ -66,15 +66,17 @@ public class Server {
                     }
                     //создадим ответ от сервера
                     try {
-                        out.writeUTF("Ответ от сервера"+msg);
+                        out.writeUTF("\tОтвет от сервера:  "+msg.toUpperCase());
                         PrintToStatusLine("Ответ успешно отправлен");
                     } catch (IOException e) {
                         e.printStackTrace();
-                        PrintToStatusLine("Ошибка ответа сервера"+msg.toUpperCase());
+                        PrintToStatusLine("Ошибка ответа сервера"+msg);
                     }
 
                 }
-            }).start();
+            });
+            //thread.setDaemon(true); //для сервера нельзя делать
+            thread.start();
 
 
         } catch (IOException e) {
