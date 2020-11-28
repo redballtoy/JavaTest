@@ -60,6 +60,8 @@ public class Server {
                     }
                     //выйти из цикла и остановить сервер если придет следующее сообщение
                     if (msg.equals("/exit")) {
+                        //после того как сервер будет остановлен
+                        PrintToStatusLine("Сервер остановлен");
                         break;
                     }
                     //создадим ответ от сервера
@@ -73,9 +75,6 @@ public class Server {
 
                 }
             }).start();
-
-            //после того как сервер будет остановлен
-            PrintToStatusLine("Сервер остановлен");
 
 
         } catch (IOException e) {

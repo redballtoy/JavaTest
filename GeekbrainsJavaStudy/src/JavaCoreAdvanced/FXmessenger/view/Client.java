@@ -11,7 +11,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class MainModel extends Application {
+public class Client extends Application {
     Parent root; //это корневой шаблон который мы видим в окне сцены,
     // Parent - это обобщенный класс отображаемый для всех компонентов JavaFX
 
