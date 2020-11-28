@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.FXmessenger.view;
+package JavaCoreAdvanced.FXmessenger.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,7 +39,8 @@ public class Controller {
     @FXML
     private ListView<String> lv_status_line;
     private final ObservableList<String> statusLine = FXCollections.observableArrayList(
-            "Строка статуса...");
+            "Строка статуса...","Строка статуса...","Строка статуса...","Строка статуса...");
+
 
 
     //При первом открытии окна будет метод инициализации
