@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_06.FX_Project;
+package JavaCoreAdvanced.lesson_06.ClientServer.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,12 +27,11 @@ public class MainModel extends Application {
     public void start(Stage primaryStage) {
         Parent root=null;
         try {
-
             root = FXMLLoader.load(getClass().getResource(PATH_TO_XML_LAYOUT));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Lesson 5");
+        primaryStage.setTitle("Lesson 6");
         primaryStage.setScene(new Scene(root, width, height));
         primaryStage.show();
     }
