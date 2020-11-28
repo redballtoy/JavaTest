@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_06.ClientServer.view;
+package JavaCoreAdvanced.FXmessenger.view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +35,12 @@ public class Controller {
     private final ObservableList<String> usersList = FXCollections.observableArrayList(
             "Андрей", "Сергей", "Василий");
 
+    //статусная строка
+    @FXML
+    private ListView<String> lv_status_line;
+    private final ObservableList<String> statusLine = FXCollections.observableArrayList(
+            "Строка статуса...");
+
 
     //При первом открытии окна будет метод инициализации
     @FXML
@@ -45,6 +51,7 @@ public class Controller {
         et_edit_text.setText("Привет!");
         lv_output_word.setItems(wordList);
         lv_users_list.setItems(usersList);
+        lv_status_line.setItems(statusLine);
     }
 
     @FXML

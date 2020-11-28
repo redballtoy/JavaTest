@@ -1,4 +1,4 @@
-package JavaCoreAdvanced.lesson_06.ClientServer.view;
+package JavaCoreAdvanced.FXmessenger.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
