@@ -28,7 +28,7 @@ public class Main {
 
     }
 
-    private static long sequentialFillingArray(float[] arr) {
+    private static long  sequentialFillingArray(float[] arr) {
         long startTime = System.currentTimeMillis();
         Thread thread = new Thread();
         thread.setPriority(5);
@@ -40,7 +40,12 @@ public class Main {
 
             //arr[i]=3;
         }
-            long stopTime = System.currentTimeMillis();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        long stopTime = System.currentTimeMillis();
         return stopTime - startTime;
     }
     private static void arrayCopy() {
