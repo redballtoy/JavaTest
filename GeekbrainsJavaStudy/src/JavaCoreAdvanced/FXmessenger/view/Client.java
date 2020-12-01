@@ -1,5 +1,8 @@
 package JavaCoreAdvanced.FXmessenger.view;
 
+//вставить в переменную
+//--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml
+
 import JavaCoreAdvanced.FXmessenger.controller.ViewController;
 import JavaCoreAdvanced.FXmessenger.net.Network;
 import JavaCoreAdvanced.FXmessenger.util.AlertError;
