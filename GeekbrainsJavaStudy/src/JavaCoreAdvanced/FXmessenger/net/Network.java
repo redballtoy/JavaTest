@@ -44,7 +44,7 @@ public class Network {
             return true;
         } catch (IOException e) {
             e.printStackTrace();
-            alertError.alertGo("IOException","Connection Error"
+            alertError.alertGo("IOException", "Connection Error"
                     , "Соединение не было установлено");
             return false;
         }
@@ -70,7 +70,7 @@ public class Network {
 
     public void waitMessage(ViewController viewController) {
         //ожидание ответв от сервера делаем в новом потоке
-        Thread thread= new Thread(()->{
+        Thread thread = new Thread(() -> {
             try {
                 while (true) {
                     String msg = in.readUTF();
@@ -82,7 +82,7 @@ public class Network {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                alertError.alertGo("IOException","Connection Error"
+                alertError.alertGo("IOException", "Connection Error"
                         , "Соединение потеряно");
             }
 
